@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,9 +11,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,17 +22,90 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
+} */
+
+.pad-box{
+  /* border: solid green 3px; */
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  /* animation: press-pad 5s; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.active-pad{
+/* .pad-box:focus{ */
+  z-index: 9;
+  /* background-color: green; */
+  border:green solid;
+  transform: scale(1.3);
+  transition: 1s;
+  animation: press-pad 1s forwards;
 }
+
+
+
+.pads{
+  /* padding: 3px; */
+  width: 40vw;
+  padding: 10px;
+  margin: auto;
+  /*border: solid;*/
+  display:grid;
+  background-color: azure;
+  grid-template-columns: 5em 5em 5em;
+  gap: 20px;
+  grid-template-rows: 5em 5em 5em;
+  justify-content: center;
+  align-content: center;
+}
+
+.pad{
+  border:solid grey ;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-pad{
+  /* border: solid red; */
+  box-sizing:border-box;
+  /*border-radius: 5px; */
+  /* box-sizing: border-box;
+  height: 5em;*/
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100%;
+  width: 100%;
+}
+
+/* .drum-pad:active{
+  border: solid orange
+} */
+
+@keyframes press-pad {
+  0%{
+    border: solid orange 3px;
+    background-color: rgb(195, 147, 59);
+  }
+  40%{
+    border: dashed 2px orange
+
+  } 
+  80% {
+    border: dotted 1px orange
+  }
+  100%{
+    border: none;
+  }
+  
+}
+

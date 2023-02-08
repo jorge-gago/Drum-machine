@@ -11,31 +11,51 @@ function App() {
     })
   }, [])
 
-
   const playSound = (id) => {
-    try{
+    try {
     const element = document.querySelector(`#${id}`)
     element.load()
     element.play()
     setPad(() => element.dataset.nombre)
-    } catch(error) {
+    }  catch (error) {
       console.log(`Error in playSound: ${error}`)
-    } 
+    }
+    // finally {
+    //   classActive(id)
+    // }
+
   }
+
+  // const classActive = (element) => {
+  //   const item = document.querySelector(`#${element}-pad`)
+  //   if (item.classList.contains('active-pad')) {
+  //     console.log("includes")
+  //     item.classList.remove('active-pad')
+  //   }
+  //   if (item.classList.contains('active-pad')) {
+  //     console.log("still")
+  //     item.classList.remove('active-pad')
+  //   }
+  //   item.classList.add('active-pad')
+  // }
 
   return (
     <div className="App">
       <div id="drum-machine">
         <div id="display">
           <span className="pads">
-          {actions.map((pad) => {
-            return (
-              <div className="drum-pad" id="pad.audio" key={pad.audio} onClick={() => playSound(pad.letra)}>
-                {pad.letra}
-                <audio id={pad.letra} className="clip" src={pad.audio}data-nombre={pad.nombre}></audio>
-              </ div>
-            )
-          })}
+            {actions.map((pad) => {
+              return (
+                <span  key={pad.audio}  className="pad">
+                  <span className="pad-box" id={`${pad.letra}-pad`}>
+                    <div className="drum-pad" id={pad.audio}  onClick={() => playSound(pad.letra)}>
+                      {pad.letra}
+                      <audio id={pad.letra} className="clip padBox" src={pad.audio}data-nombre={pad.nombre}></audio>
+                    </ div>
+                  </span>
+                </span>
+              )
+            })}
           </span>
           <span className="show-pads">{activePad}</span>
         </div>
